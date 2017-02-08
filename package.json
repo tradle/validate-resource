@@ -1,0 +1,27 @@
+{
+  "name": "@tradle/validate-resource",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tradle/build-resource"
+  },
+  "author": "mvayngrib",
+  "license": "MIT",
+  "peerDependencies": {
+    "@tradle/engine": "^3.10.4"
+  },
+  "dependencies": {
+    "@tradle/models": "https://github.com/tradle/models",
+    "@tradle/validate": "https://github.com/tradle/validate"
+  },
+  "scripts": {
+    "test": "node test",
+    "lint": "eslint --quiet ."
+  },
+  "devDependencies": {
+    "@tradle/engine": "^3.10.4",
+    "eslint": "^3.15.0",
+    "tape": "^4.6.3"
+  }
+}
