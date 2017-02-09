@@ -11,7 +11,8 @@
   "peerDependencies": {},
   "dependencies": {
     "@tradle/models": "https://github.com/tradle/models",
-    "@tradle/validate": "https://github.com/tradle/validate"
+    "@tradle/validate": "https://github.com/tradle/validate",
+    "traverse": "^0.6.6"
   },
   "scripts": {
     "test": "node test",

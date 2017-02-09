@@ -2,11 +2,16 @@
 
 const TYPE = '_t'
 const SIG = '_s'
+const traverse = require('traverse')
 exports = module.exports = validateResource
 exports.resource = validateResource
 exports.property = validatePropertyValue
 
 function validateResource ({ models, model, resource, inlined=false }) {
+  if (hasUndefinedValues(resource)) {
+    throw new Error('undefined property values are not allowed')
+  }
+
   let {
     properties={},
     required=[]
@@ -143,4 +148,16 @@ function isDateish (value) {
   if (typeof value !== 'string' && typeof value !== 'number') return false
 
   return !isNaN(new Date(value).getTime())
+}
+
+function hasUndefinedValues (obj) {
+  let has
+  traverse(obj).forEach(function (val) {
+    if (val === undefined) {
+      has = true
+      this.update(undefined, true) // stop traversing
+    }
+  })
+
+  return has
 }
