@@ -1,7 +1,7 @@
 // const typeforce = require('typeforce')
-const { constants } = require('@tradle/engine')
-const { TYPE, SIG } = constants
 
+const TYPE = '_t'
+const SIG = '_s'
 exports = module.exports = validateResource
 exports.resource = validateResource
 exports.property = validatePropertyValue
@@ -116,9 +116,12 @@ function validateId ({ models, id }) {
   }
 
   const { type, permalink, link } = parseId(id)
-  if (models && !models[type]) {
-    throw new Error('unknown model')
+  const valueModel = models[type]
+  if (!valueModel) {
+    throw new Error(`unknown model ${type}`)
   }
+
+  if (valueModel.subClassOf === 'tradle.Enum') return
 
   [link, permalink].forEach(str => {
     if (str && str.length !== 64) {
