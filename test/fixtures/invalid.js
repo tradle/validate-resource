@@ -3,12 +3,12 @@ const Profile = models['tradle.Profile']
 
 module.exports = [
   {
-    model: Profile,
+    models,
     resource: {},
-    error: /\._t/
+    error: /\"_t\"/
   },
   {
-    model: Profile,
+    models,
     resource: {
       _t: Profile.id,
       _s: 'somesig'
@@ -16,7 +16,7 @@ module.exports = [
     error: /required/
   },
   {
-    model: Profile,
+    models,
     resource: {
       _t: Profile.id,
       _s: 'somesig',
@@ -25,7 +25,7 @@ module.exports = [
     error: /firstName/
   },
   {
-    model: Profile,
+    models,
     resource: {
       _t: Profile.id,
       _s: 'somesig',
@@ -35,7 +35,7 @@ module.exports = [
     error: /photos/
   },
   {
-    model: Profile,
+    models,
     resource: {
       _t: Profile.id,
       _s: 'somesig',
@@ -44,10 +44,22 @@ module.exports = [
         _t: 'tradle.Beef'
       }]
     },
+    error: /tradle\.Beef/
+  },
+  {
+    models,
+    resource: {
+      _t: Profile.id,
+      _s: 'somesig',
+      firstName: 'ted',
+      photos: [{
+        _t: 'tradle.PersonalInfo'
+      }]
+    },
     error: /tradle\.Photo/
   },
   {
-    model: Profile,
+    models,
     resource: {
       _t: Profile.id,
       _s: 'somesig',
@@ -57,7 +69,7 @@ module.exports = [
     error: /lastMessageTime/
   },
   {
-    model: Profile,
+    models,
     resource: {
       _t: Profile.id,
       _s: 'somesig',
@@ -69,7 +81,7 @@ module.exports = [
     error: /myDocuments/
   },
   {
-    model: Profile,
+    models,
     resource: {
       _t: Profile.id,
       _s: 'somesig',
@@ -79,7 +91,7 @@ module.exports = [
     error: /country/
   },
   {
-    model: Profile,
+    models,
     resource: {
       _t: Profile.id,
       _s: 'somesig',

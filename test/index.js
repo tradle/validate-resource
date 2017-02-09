@@ -10,7 +10,6 @@ test('validate resource', function (t) {
   broken.forEach(item => {
     t.throws(() => validate({
       models,
-      model: item.model,
       resource: item.resource
     }), item.error)
   })
@@ -18,7 +17,6 @@ test('validate resource', function (t) {
   good.forEach(item => {
     t.doesNotThrow(() => validate({
       models,
-      model: item.model,
       resource: item.resource
     }))
   })

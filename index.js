@@ -7,9 +7,16 @@ exports = module.exports = validateResource
 exports.resource = validateResource
 exports.property = validatePropertyValue
 
-function validateResource ({ models, model, resource, inlined=false }) {
+function validateResource ({ models, resource, inlined=false }) {
   if (hasUndefinedValues(resource)) {
     throw new Error('undefined property values are not allowed')
+  }
+
+  assert(typeof resource[TYPE] === 'string', `expected string "${TYPE}"`)
+
+  const model = models.find(m => m.id === resource[TYPE])
+  if (!model) {
+    throw new Error(`model "${resource[TYPE]}" was not found`)
   }
 
   let {
@@ -21,7 +28,6 @@ function validateResource ({ models, model, resource, inlined=false }) {
   required.push(TYPE)
   if (!inlined) required.push(SIG)
 
-  assert(resource[TYPE] === model.id, `expected resource.${TYPE} to equal ${model.id}`)
   required.forEach(p => {
     assert(p in resource, `expected required property "${p}"`)
   })
@@ -93,10 +99,28 @@ function validateArrayPropertyValue ({ models, model, propertyName, value }) {
   assert(Array.isArray(value), `expected array ${propertyName}`)
   value.forEach(item => {
     if (prop.inlined) {
+      const ref = prop.ref || prop.items.ref
+      const refModel = models[ref]
+      if (!refModel) {
+        throw new Error(`model "${ref}" was not found`)
+      }
+
+      const valType = item[TYPE]
+      const valModel = models[valType]
+      if (!valModel) {
+        throw new Error(`model "${valType}" was not found`)
+      }
+
+      if (valModel.id !== refModel.id &&
+        valModel.subClassOf !== refModel.id &&
+        !(refModel.isInterface && valModel.interfaces.indexOf(refModel.id) !== -1)) {
+        throw new Error(`expected "${propertyName}" to hold "${refModel.id}"`)
+      }
+
       return validateResource({
         inlined: true,
         models,
-        model: models[prop.ref || prop.items.ref],
+        model: models[ref],
         resource: item
       })
     }
