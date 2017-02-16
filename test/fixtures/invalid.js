@@ -5,7 +5,7 @@ module.exports = [
   {
     models,
     resource: {},
-    error: /\"_t\"/
+    error: /"_t"/
   },
   {
     models,

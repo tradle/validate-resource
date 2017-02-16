@@ -2,7 +2,7 @@
 const test = require('tape')
 const models = require('@tradle/models')
 // const Profile = models['tradle.Profile']
-const validate = require('../').resource
+const validate = require('../')
 const broken = require('./fixtures/invalid')
 const good = require('./fixtures/valid')
 
