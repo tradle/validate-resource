@@ -10,8 +10,6 @@
   "license": "MIT",
   "peerDependencies": {},
   "dependencies": {
-    "@tradle/models": "https://github.com/tradle/models",
-    "@tradle/validate": "https://github.com/tradle/validate",
     "traverse": "^0.6.6"
   },
   "scripts": {
@@ -19,6 +17,9 @@
     "lint": "eslint --quiet ."
   },
   "devDependencies": {
+    "@tradle/custom-models": "https://github.com/tradle/custom-models",
+    "@tradle/models": "https://github.com/tradle/models",
+    "@tradle/validate-model": "https://github.com/tradle/validate-model",
     "eslint": "^3.15.0",
     "tape": "^4.6.3"
   }

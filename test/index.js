@@ -1,6 +1,6 @@
 
 const test = require('tape')
-const models = require('@tradle/models')
+const models = require('@tradle/models').models.concat(require('@tradle/custom-models'))
 // const Profile = models['tradle.Profile']
 const validate = require('../')
 const broken = require('./fixtures/invalid')

@@ -2,20 +2,30 @@
 # yarn lockfile v1
 
 
-"@tradle/models@https://github.com/tradle/models":
-  version "4.10.9"
-  resolved "https://github.com/tradle/models#47e274e16d7e14b874ff28d9d2c4433fe5a9fc99"
+"@tradle/custom-models@https://github.com/tradle/custom-models":
+  version "4.10.10"
+  resolved "https://github.com/tradle/custom-models#6bc2bbb00eabc084fcdd166f09e9638ea48546a5"
   dependencies:
     minimist "^1.2.0"
     typeforce "^1.10.6"
     write-file-atomic "^1.1.4"
 
-"@tradle/validate@https://github.com/tradle/validate":
-  version "1.0.0"
-  resolved "https://github.com/tradle/validate#e0f2fd73dff5eb348dc9ce6e29881ddc4579a8ab"
+"@tradle/models@https://github.com/tradle/models":
+  version "4.10.10"
+  resolved "https://github.com/tradle/models#39d3a14423db9009d0c53e6ba6f8f55d3867e97b"
   dependencies:
+    minimist "^1.2.0"
+    typeforce "^1.10.6"
+    write-file-atomic "^1.1.4"
+
+"@tradle/validate-model@https://github.com/tradle/validate-model":
+  version "1.0.0"
+  resolved "https://github.com/tradle/validate-model#c67483a907399b56f06ade15c25bf5950bf3a3fd"
+  dependencies:
+    object.omit "^2.0.1"
     object.pick "^1.2.0"
     typeforce "^1.10.6"
+    xtend "^4.0.1"
 
 acorn-jsx@^3.0.0:
   version "3.0.1"
@@ -396,6 +406,16 @@ for-each@~0.3.2:
   dependencies:
     is-function "~1.0.0"
 
+for-in@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
+
+for-own@^0.1.4:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/for-own/-/for-own-0.1.5.tgz#5265c681a4f294dabbf17c9509b6763aa84510ce"
+  dependencies:
+    for-in "^1.0.1"
+
 foreach@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/foreach/-/foreach-2.0.5.tgz#0bee005018aeb260d0a3af3ae658dd0136ec1b99"
@@ -508,6 +528,10 @@ is-callable@^1.1.1, is-callable@^1.1.3:
 is-date-object@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/is-date-object/-/is-date-object-1.0.1.tgz#9aa20eb6aeebbff77fbd33e74ca01b33581d3a16"
+
+is-extendable@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/is-extendable/-/is-extendable-0.1.1.tgz#62b110e289a471418e3ec36a617d472e301dfc89"
 
 is-fullwidth-code-point@^1.0.0:
   version "1.0.0"
@@ -663,6 +687,13 @@ object-inspect@~1.2.1:
 object-keys@^1.0.8:
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.0.11.tgz#c54601778ad560f1142ce0e01bcca8b56d13426d"
+
+object.omit@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/object.omit/-/object.omit-2.0.1.tgz#1a9c744829f39dbb858c76ca3579ae2a54ebd1fa"
+  dependencies:
+    for-own "^0.1.4"
+    is-extendable "^0.1.1"
 
 object.pick@^1.2.0:
   version "1.2.0"
@@ -937,8 +968,8 @@ wrappy@1:
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
 
 write-file-atomic@^1.1.4:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/write-file-atomic/-/write-file-atomic-1.3.1.tgz#7d45ba32316328dd1ec7d90f60ebc0d845bb759a"
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/write-file-atomic/-/write-file-atomic-1.3.4.tgz#f807a4f0b1d9e913ae7a48112e6cc3af1991b45f"
   dependencies:
     graceful-fs "^4.1.11"
     imurmurhash "^0.1.4"
@@ -950,6 +981,6 @@ write@^0.2.1:
   dependencies:
     mkdirp "^0.5.1"
 
-xtend@^4.0.0:
+xtend@^4.0.0, xtend@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
