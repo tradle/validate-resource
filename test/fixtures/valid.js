@@ -1,5 +1,6 @@
 const models = require('@tradle/models')
 const Profile = models['tradle.Profile']
+const ModelsPack = models['tradle.ModelsPack']
 
 module.exports = [
   {
@@ -42,6 +43,16 @@ module.exports = [
         id: 'tradle.Country_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
         title: 'Slovooglie'
       }
+    }
+  },
+  {
+    model: ModelsPack,
+    resource: {
+      _t: ModelsPack.id,
+      _s: 'somesig',
+      models: [
+        Profile
+      ]
     }
   }
 ]
