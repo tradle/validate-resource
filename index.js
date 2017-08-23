@@ -1,4 +1,4 @@
-const { TYPE } = require('./lib/constants')
+const { TYPE } = require('@tradle/constants')
 exports = module.exports = validateResource
 exports.resource = validateResource
 exports.property = require('./lib/property')

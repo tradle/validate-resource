@@ -8,8 +8,11 @@
   },
   "author": "mvayngrib",
   "license": "MIT",
-  "peerDependencies": {},
+  "peerDependencies": {
+    "@tradle/models": "*"
+  },
   "dependencies": {
+    "@tradle/constants": "^2.1.0",
     "debug": "^3.0.0",
     "object.omit": "^2.0.1",
     "object.pick": "^1.2.0",
