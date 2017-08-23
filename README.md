@@ -24,3 +24,7 @@ try {
   console.log('uhh, i totally made this mistake on purpose:', err)
 }
 ```
+
+## Todo
+
+differentiate between user errors (e.g. required property is missing) and developer errors (e.g. expected String, got Number)
