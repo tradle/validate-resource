@@ -1,6 +1,11 @@
 
 const test = require('tape')
-const models = require('@tradle/models').models.concat(require('@tradle/custom-models'))
+const mergeModels = require('@tradle/merge-models')
+const models = mergeModels()
+  .add(require('@tradle/models').models)
+  .add(require('@tradle/custom-models'))
+  .get()
+
 // const Profile = models['tradle.Profile']
 const validate = require('../')
 const { utils } = validate
@@ -54,6 +59,25 @@ test('virtual properties', function (t) {
     _hey: 'ho',
     _virtual: ['_ha', '_hey']
   })
+
+  t.end()
+})
+
+test('utils', function (t) {
+  const model = models['tradle.Sex']
+  const eVal = model.enum[0]
+  t.same(utils.parseEnumValue({
+    model,
+    value: `${model.id}_${eVal.id}`
+  }), eVal)
+
+  t.same(utils.parseEnumValue({
+    model,
+    value: {
+      id: `${model.id}_${eVal.id}`,
+      title: eVal.title
+    }
+  }), eVal)
 
   t.end()
 })

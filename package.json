@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@tradle/custom-models": "https://github.com/tradle/custom-models",
+    "@tradle/merge-models": "^2.0.0",
     "@tradle/models": "https://github.com/tradle/models",
     "@tradle/validate-model": "https://github.com/tradle/validate-model",
     "eslint": "^3.15.0",
