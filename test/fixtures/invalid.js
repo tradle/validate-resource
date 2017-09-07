@@ -99,5 +99,18 @@ module.exports = [
       useTouchId: 'three'
     },
     error: /useTouchId/
+  },
+  {
+    models,
+    resource: {
+      _t: Profile.id,
+      _s: 'somesig',
+      firstName: 'ted',
+      photos: [{
+        _t: 'tradle.Photo',
+        width: null
+      }]
+    },
+    error: /undefined.*width/i
   }
 ]

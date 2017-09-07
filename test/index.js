@@ -13,7 +13,7 @@ const broken = require('./fixtures/invalid')
 const good = require('./fixtures/valid')
 
 test('validate resource', function (t) {
-  broken.forEach(item => {
+  broken.forEach((item, i) => {
     t.throws(() => validate({
       models,
       resource: item.resource
