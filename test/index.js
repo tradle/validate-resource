@@ -54,10 +54,20 @@ test('virtual properties', function (t) {
     a: 1
   })
 
+  t.same(utils.omitVirtual(obj, ['_ha']), {
+    a: 1,
+    _hey: 'ho',
+    _virtual: ['_hey']
+  })
+
   t.same(utils.pickVirtual(obj), {
     _ha: 'ha',
     _hey: 'ho',
     _virtual: ['_ha', '_hey']
+  })
+
+  t.same(utils.pickVirtual(obj, ['_ha']), {
+    _ha: 'ha'
   })
 
   t.end()
