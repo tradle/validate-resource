@@ -89,5 +89,15 @@ test('utils', function (t) {
     }
   }), eVal)
 
+  t.same(utils.parseStub({
+    id: 'tradle.Profile_abc_123',
+    title: 'mamajama'
+  }), {
+    type: 'tradle.Profile',
+    link: '123',
+    permalink: 'abc',
+    title: 'mamajama'
+  })
+
   t.end()
 })
