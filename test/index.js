@@ -1,5 +1,6 @@
 
 const test = require('tape')
+const { TYPE } = require('@tradle/constants')
 const mergeModels = require('@tradle/merge-models')
 const models = mergeModels()
   .add(require('@tradle/models').models)
@@ -98,6 +99,51 @@ test('utils', function (t) {
     permalink: 'abc',
     title: 'mamajama'
   })
+
+  t.end()
+})
+
+test('allow unknown properties', function (t) {
+  const model = {
+    type: 'tradle.Model',
+    id: 'dynamicModel',
+    title: 'Dynamic Model',
+    properties: {}
+  }
+
+  t.doesNotThrow(() => validate({
+    model,
+    resource: {
+      [TYPE]: model.id
+    }
+  }))
+
+  t.doesNotThrow(() => validate({
+    model,
+    resource: {
+      [TYPE]: model.id,
+      hey: 'ho'
+    }
+  }))
+
+  t.throws(() => validate({
+    model,
+    resource: {
+      [TYPE]: model.id,
+      hey: 'ho'
+    },
+    allowUnknown: false
+  }), /hey/)
+
+  t.throws(() => validate.refs({
+    models,
+    model,
+    resource: {
+      [TYPE]: model.id,
+      hey: 'ho'
+    },
+    allowUnknown: false
+  }), /hey/)
 
   t.end()
 })

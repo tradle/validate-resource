@@ -108,7 +108,7 @@ module.exports = [
       firstName: 'ted',
       photos: [{
         _t: 'tradle.Photo',
-        width: null
+        width: undefined
       }]
     },
     error: /undefined.*width/i
