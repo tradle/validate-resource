@@ -86,6 +86,18 @@ module.exports = [
       _t: Profile.id,
       _s: 'somesig',
       firstName: 'ted',
+      myForms: [{
+        id: 'tradle.Major_boo_hoo'
+      }]
+    },
+    error: /myForms/
+  },
+  {
+    models,
+    resource: {
+      _t: Profile.id,
+      _s: 'somesig',
+      firstName: 'ted',
       country: 'USA'
     },
     error: /country/

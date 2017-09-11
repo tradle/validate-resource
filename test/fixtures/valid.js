@@ -39,6 +39,13 @@ module.exports = [
         id: 'tradle.MyLifeInsurance_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
         title: 'my current account'
       }],
+      myForms: [{
+        id: 'tradle.AboutYou_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
+        title: 'about me'
+      }, {
+        id: 'tradle.PersonalInfo_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
+        title: 'more about me'
+      }],
       country: {
         id: 'tradle.Country_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
         title: 'Slovooglie'
