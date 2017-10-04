@@ -13,6 +13,10 @@ exports.refs = validateRefs
 function validateResource ({ model, models, resource, allowUnknown }) {
   assert(typeof resource[TYPE] === 'string', `expected "${TYPE}"`)
   models = toModelsMap(models)
+  if (typeof model === 'string') {
+    model = models[model]
+  }
+
   if (!model) {
     model = models[resource[TYPE]]
   }
