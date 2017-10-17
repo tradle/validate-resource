@@ -124,5 +124,14 @@ module.exports = [
       }]
     },
     error: /undefined.*width/i
+  },
+  {
+    models,
+    resource: {
+      _t: Profile.id,
+      _s: 'somesig',
+      firstName: ''
+    },
+    error: /empty.*firstName/i
   }
 ]
