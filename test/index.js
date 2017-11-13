@@ -1,5 +1,6 @@
 
 const test = require('tape')
+const clone = require('clone')
 const { TYPE } = require('@tradle/constants')
 const mergeModels = require('@tradle/merge-models')
 const models = mergeModels()
@@ -145,5 +146,57 @@ test('allow unknown properties', function (t) {
     allowUnknown: false
   }), /hey/)
 
+  t.end()
+})
+
+test('sanitize', function (t) {
+  const bad = {
+    a: undefined,
+    b: {
+      c: '',
+      d: [{
+        e: undefined,
+        f: '',
+        g: 1
+      }],
+      e: 2
+    }
+  }
+
+  const copy = clone(bad)
+  t.same(utils.sanitize(bad), {
+    sanitized: {
+      b: {
+        d: [{
+          g: 1
+        }],
+        e: 2
+      }
+    }, removed: [
+      {
+        key: 'a',
+        value: undefined,
+        path: 'a'
+      },
+      {
+        key: 'c',
+        value: '',
+        path: 'b.c'
+      },
+      {
+        key: 'e',
+        value: undefined,
+        path: 'b.d.0.e'
+      },
+      {
+        key: 'f',
+        value: '',
+        path: 'b.d.0.f'
+      }
+    ]
+  })
+
+  // bad is unchanged
+  t.same(bad, copy)
   t.end()
 })
