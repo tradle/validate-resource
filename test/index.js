@@ -16,6 +16,8 @@ const good = require('./fixtures/valid')
 
 test('validate resource', function (t) {
   broken.forEach((item, i) => {
+    if (item.model) models[item.model.id] = item.model
+
     t.throws(() => validate({
       models,
       resource: item.resource
@@ -23,6 +25,8 @@ test('validate resource', function (t) {
   })
 
   good.forEach(item => {
+    if (item.model) models[item.model.id] = item.model
+
     t.doesNotThrow(() => validate({
       models,
       resource: item.resource

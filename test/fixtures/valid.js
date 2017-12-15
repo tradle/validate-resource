@@ -61,5 +61,25 @@ module.exports = [
         Profile
       ]
     }
+  },
+  {
+    model: {
+      id: 'Colors',
+      properties: {
+        colors: {
+          type: 'array',
+          items: {
+            type: 'string'
+          }
+        }
+      }
+    },
+    resource: {
+      _t: 'Colors',
+      colors: [
+        'blue',
+        'green'
+      ]
+    }
   }
 ]
