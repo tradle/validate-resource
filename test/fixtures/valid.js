@@ -1,4 +1,4 @@
-const models = require('@tradle/models')
+const { models } = require('@tradle/models')
 const Profile = models['tradle.Profile']
 const ModelsPack = models['tradle.ModelsPack']
 
@@ -57,6 +57,8 @@ module.exports = [
     resource: {
       _t: ModelsPack.id,
       _s: 'somesig',
+      namespace: 'somenamespace',
+      versionId: 'someversionid',
       models: [
         Profile
       ]

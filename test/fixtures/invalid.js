@@ -1,4 +1,4 @@
-const models = require('@tradle/models')
+const { models } = require('@tradle/models')
 const Profile = models['tradle.Profile']
 
 module.exports = [
