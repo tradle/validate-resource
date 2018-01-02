@@ -1,6 +1,6 @@
 
 const test = require('tape')
-const clone = require('clone')
+const _ = require('lodash')
 const { TYPE } = require('@tradle/constants')
 const mergeModels = require('@tradle/merge-models')
 const models = mergeModels()
@@ -167,7 +167,7 @@ test('sanitize', function (t) {
     }
   }
 
-  const copy = clone(bad)
+  const copy = _.cloneDeep(bad)
   t.same(utils.sanitize(bad), {
     sanitized: {
       b: {
