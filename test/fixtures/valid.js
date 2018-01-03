@@ -1,6 +1,7 @@
 const { models } = require('@tradle/models')
 const Profile = models['tradle.Profile']
 const ModelsPack = models['tradle.ModelsPack']
+const Possessions = require('@tradle/custom-models')['tradle.Posessions']
 
 module.exports = [
   {
@@ -83,5 +84,16 @@ module.exports = [
         'green'
       ]
     }
+  },
+  {
+    model: Possessions,
+    resource: {
+      _t: Possessions.id,
+      downPayment: {
+        currency: '$',
+        value: 100
+      }
+    },
+    error: /required/
   }
 ]
