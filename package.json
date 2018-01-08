@@ -1,6 +1,6 @@
 {
   "name": "@tradle/validate-resource",
-  "version": "2.16.0",
+  "version": "2.16.1",
   "main": "index.js",
   "repository": {
     "type": "git",
