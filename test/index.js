@@ -1,7 +1,7 @@
 
 const test = require('tape')
 const _ = require('lodash')
-const { TYPE } = require('@tradle/constants')
+const { TYPE, SIG } = require('@tradle/constants')
 const mergeModels = require('@tradle/merge-models')
 const models = mergeModels()
   .add(require('@tradle/models').models)
@@ -38,11 +38,13 @@ test('validate resource', function (t) {
 
 test('virtual properties', function (t) {
   const obj = {
+    [SIG]: 'somesig',
     a: 1
   }
 
   utils.setVirtual(obj, { _ha: 'ha' })
   t.same(obj, {
+    [SIG]: 'somesig',
     a: 1,
     _ha: 'ha',
     _virtual: ['_ha']
@@ -50,6 +52,7 @@ test('virtual properties', function (t) {
 
   utils.setVirtual(obj, { _hey: 'ho' })
   t.same(obj, {
+    [SIG]: 'somesig',
     a: 1,
     _ha: 'ha',
     _hey: 'ho',
@@ -57,10 +60,12 @@ test('virtual properties', function (t) {
   })
 
   t.same(utils.omitVirtual(obj), {
+    [SIG]: 'somesig',
     a: 1
   })
 
   t.same(utils.omitVirtual(obj, ['_ha']), {
+    [SIG]: 'somesig',
     a: 1,
     _hey: 'ho',
     _virtual: ['_hey']
@@ -74,6 +79,13 @@ test('virtual properties', function (t) {
 
   t.same(utils.pickVirtual(obj, ['_ha']), {
     _ha: 'ha'
+  })
+
+  t.equal(utils.hasVirtualDeep(obj), true)
+  t.equal(utils.hasVirtualDeep(utils.omitVirtualDeep(obj)), false)
+  t.same(utils.omitVirtualDeep(obj), {
+    [SIG]: 'somesig',
+    a: 1
   })
 
   t.end()
