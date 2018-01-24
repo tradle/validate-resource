@@ -10,7 +10,7 @@ exports.property = require('./lib/property')
 exports.utils = utils
 exports.refs = validateRefs
 
-function validateResource ({ model, models, resource, allowUnknown, ignoreReadOnly }) {
+function validateResource ({ model, models, resource, allowUnknown }) {
   assert(typeof resource[TYPE] === 'string', `expected "${TYPE}"`)
   models = toModelsMap(models)
   if (typeof model === 'string') {
@@ -25,6 +25,6 @@ function validateResource ({ model, models, resource, allowUnknown, ignoreReadOn
     throw new Error(`model "${resource[TYPE]}" was not found`)
   }
 
-  validateLocal.resource({ models, model, resource, allowUnknown, ignoreReadOnly })
+  validateLocal.resource({ models, model, resource, allowUnknown })
   validateRefs({ models, model, resource, allowUnknown })
 }
