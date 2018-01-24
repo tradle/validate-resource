@@ -88,6 +88,12 @@ test('virtual properties', function (t) {
     a: 1
   })
 
+  utils.stripVirtual(obj)
+  t.same(obj, {
+    [SIG]: 'somesig',
+    a: 1
+  })
+
   t.end()
 })
 
