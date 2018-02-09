@@ -93,8 +93,14 @@ module.exports = [
         currency: '$',
         value: 100
       }
+    }
+  },
+  {
+    model: Possessions,
+    resource: {
+      _t: Possessions.id
     },
-    error: /required/
+    partial: true
   },
   {
     model: models['tradle.APIBasedVerificationMethod'],
