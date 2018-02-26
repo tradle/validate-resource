@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@tradle/custom-models": "https://github.com/tradle/custom-models",
+    "@tradle/errors": "^1.1.0",
     "@tradle/merge-models": "^2.0.0",
     "@tradle/models": "github:tradle/models",
     "@tradle/validate-model": "^5.1.1",

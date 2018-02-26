@@ -130,7 +130,9 @@ module.exports = [
         width: undefined
       }]
     },
-    error: /undefined.*width/i
+    error: {
+      property: 'photos.0.width'
+    }
   },
   {
     models,

@@ -3,6 +3,7 @@ const test = require('tape')
 const _ = require('lodash')
 const { TYPE, SIG } = require('@tradle/constants')
 const mergeModels = require('@tradle/merge-models')
+const Errors = require('@tradle/errors')
 const models = mergeModels()
   .add(require('@tradle/models').models)
   .add(require('@tradle/custom-models'))
@@ -20,14 +21,13 @@ test('validate resource', function (t) {
 
     const { error } = opts
     opts = _.extend({ models }, _.omit(opts, 'error'))
-    t.throws(() => {
-      try {
-        validate(opts)
-      } catch (err) {
-        t.ok(err.name in validate.Errors)
-        throw err
-      }
-    }, error)
+    try {
+      validate(opts)
+      t.fail(`expected error: ${JSON.stringify(error)}`)
+    } catch (err) {
+      t.ok(err.name in validate.Errors)
+      t.ok(Errors.matches(err, error))
+    }
   })
 
   good.forEach(opts => {
