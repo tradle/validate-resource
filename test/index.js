@@ -15,12 +15,19 @@ const broken = require('./fixtures/invalid')
 const good = require('./fixtures/valid')
 
 test('validate resource', function (t) {
-  broken.forEach((opts, i) => {
+  broken.forEach(opts => {
     if (opts.model) models[opts.model.id] = opts.model
 
     const { error } = opts
     opts = _.extend({ models }, _.omit(opts, 'error'))
-    t.throws(() => validate(opts), error)
+    t.throws(() => {
+      try {
+        validate(opts)
+      } catch (err) {
+        t.ok(err.name in validate.Errors)
+        throw err
+      }
+    }, error)
   })
 
   good.forEach(opts => {
@@ -191,7 +198,8 @@ test('sanitize', function (t) {
         }],
         e: 2
       }
-    }, removed: [
+    },
+    removed: [
       {
         key: 'a',
         value: undefined,
