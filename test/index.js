@@ -227,3 +227,61 @@ test('sanitize', function (t) {
   t.same(bad, copy)
   t.end()
 })
+
+test('primary keys', function (t) {
+  t.same(utils.getPrimaryKeyProps({
+    primaryKeys: {
+      hashKey: 'a'
+    }
+  }), ['a'])
+
+  t.same(utils.getPrimaryKeyProps({
+    primaryKeys: {
+      hashKey: 'a',
+      rangeKey: 'b',
+      blah: 'c'
+    }
+  }), ['a', 'b'])
+
+  t.same(utils.getPrimaryKeyProps({}), ['_permalink'])
+
+  t.same(utils.getPrimaryKeys({
+    model: {
+      primaryKeys: {
+        hashKey: 'a'
+      }
+    },
+    resource: {
+      a: 1,
+      b: 2,
+      c: 3,
+    }
+  }), { a: 1 })
+
+  t.same(utils.getPrimaryKeys({
+    model: {
+      primaryKeys: {
+        hashKey: 'a',
+        rangeKey: 'b',
+        blah: 'c'
+      }
+    },
+    resource: {
+      a: 1,
+      b: 2,
+      c: 3,
+    }
+  }), { a: 1, b: 2 })
+
+  t.same(utils.getPrimaryKeys({
+    model: {},
+    resource: {
+      _permalink: 'a',
+      a: 1,
+      b: 2,
+      c: 3,
+    }
+  }), { _permalink: 'a' })
+
+  t.end()
+})
