@@ -30,5 +30,8 @@
     "@tradle/validate-model": "^5.1.1",
     "eslint": "^3.15.0",
     "tape": "^4.6.3"
+  },
+  "peerDependencies": {
+    "@tradle/models": "*"
   }
 }

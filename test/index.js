@@ -25,6 +25,7 @@ test('validate resource', function (t) {
       validate(opts)
       t.fail(`expected error: ${JSON.stringify(error)}`)
     } catch (err) {
+      console.log(err.message)
       t.ok(err.name in validate.Errors)
       t.ok(Errors.matches(err, error))
     }
@@ -51,7 +52,7 @@ test('virtual properties', function (t) {
     [SIG]: 'somesig',
     a: 1,
     _ha: 'ha',
-    _virtual: ['_ha']
+    // _virtual: ['_ha']
   })
 
   utils.setVirtual(obj, { _hey: 'ho' })
@@ -60,7 +61,7 @@ test('virtual properties', function (t) {
     a: 1,
     _ha: 'ha',
     _hey: 'ho',
-    _virtual: ['_ha', '_hey']
+    // _virtual: ['_ha', '_hey']
   })
 
   t.same(utils.omitVirtual(obj), {
@@ -72,13 +73,12 @@ test('virtual properties', function (t) {
     [SIG]: 'somesig',
     a: 1,
     _hey: 'ho',
-    _virtual: ['_hey']
   })
 
   t.same(utils.pickVirtual(obj), {
     _ha: 'ha',
     _hey: 'ho',
-    _virtual: ['_ha', '_hey']
+    // _virtual: ['_ha', '_hey']
   })
 
   t.same(utils.pickVirtual(obj, ['_ha']), {
