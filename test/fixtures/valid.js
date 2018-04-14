@@ -32,20 +32,28 @@ module.exports = [
       firstName: 'ted',
       lastMessageTime: Date.now(),
       myDocuments: [{
-        id: 'tradle.PhotoID_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
-        title: 'my passport'
+        _t: 'tradle.PhotoID',
+        _link: '0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
+        _permalink: '0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
+        _displayName: 'my passport'
       }],
       isEmployee: true,
       myProducts: [{
-        id: 'tradle.MyLifeInsurance_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
-        title: 'my current account'
+        _t: 'tradle.MyLifeInsurance',
+        _permalink: '0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
+        _link: '0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
+        _displayName: 'my current account'
       }],
       myForms: [{
-        id: 'tradle.AboutYou_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
-        title: 'about me'
+        _t: 'tradle.AboutYou',
+        _permalink: '0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
+        _link: '0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
+        _displayName: 'about me'
       }, {
-        id: 'tradle.PersonalInfo_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
-        title: 'more about me'
+        _t: 'tradle.PersonalInfo',
+        _permalink: '0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
+        _link: '0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',
+        _displayName: 'more about me'
       }],
       country: {
         id: 'tradle.Country_0162834c8d8005614cd494ddbd1a635942ed50005dda54de50d036045b1c7ae5',

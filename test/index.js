@@ -85,11 +85,42 @@ test('virtual properties', function (t) {
     _ha: 'ha'
   })
 
-  t.equal(utils.hasVirtualDeep(obj), true)
-  t.equal(utils.hasVirtualDeep(utils.omitVirtualDeep(obj)), false)
-  t.same(utils.omitVirtualDeep(obj), {
+  t.equal(utils.hasVirtualDeep({
+    models,
+    resource: obj
+  }), true)
+
+  t.equal(utils.hasVirtualDeep({
+    models,
+    resource: utils.omitVirtualDeep({
+      models,
+      resource: obj
+    })
+  }), false)
+
+  t.same(utils.omitVirtualDeep({
+    models,
+    resource: obj
+  }), {
     [SIG]: 'somesig',
     a: 1
+  })
+
+  t.same(utils.omitVirtualDeep({
+    models,
+    resource: {
+      [TYPE]: 'tradle.FormRequest',
+      form: 'tradle.ProductRequest',
+      chooser: {
+        oneOf: ['a', 'b', 'c']
+      }
+    }
+  }), {
+    [TYPE]: 'tradle.FormRequest',
+    form: 'tradle.ProductRequest',
+    chooser: {
+      oneOf: ['a', 'b', 'c']
+    }
   })
 
   utils.stripVirtual(obj)
@@ -229,13 +260,13 @@ test('sanitize', function (t) {
 })
 
 test('primary keys', function (t) {
-  t.same(utils.getPrimaryKeyProps({
+  t.same(utils.getPrimaryKeyProperties({
     primaryKeys: {
       hashKey: 'a'
     }
   }), ['a'])
 
-  t.same(utils.getPrimaryKeyProps({
+  t.same(utils.getPrimaryKeyProperties({
     primaryKeys: {
       hashKey: 'a',
       rangeKey: 'b',
@@ -243,7 +274,7 @@ test('primary keys', function (t) {
     }
   }), ['a', 'b'])
 
-  t.same(utils.getPrimaryKeyProps({}), ['_permalink'])
+  t.same(utils.getPrimaryKeyProperties({}), ['_permalink'])
 
   t.same(utils.getPrimaryKeys({
     model: {
