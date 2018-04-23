@@ -1,6 +1,6 @@
 {
   "name": "@tradle/validate-resource",
-  "version": "2.22.0",
+  "version": "3.0.0",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -30,8 +30,5 @@
     "@tradle/validate-model": "^6.0.1",
     "eslint": "^3.15.0",
     "tape": "^4.6.3"
-  },
-  "peerDependencies": {
-    "@tradle/models": "*"
   }
 }
