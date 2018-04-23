@@ -4,7 +4,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tradle/build-resource"
+    "url": "https://github.com/tradle/validate-resource"
   },
   "author": "mvayngrib",
   "license": "MIT",
