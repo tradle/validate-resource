@@ -106,20 +106,37 @@ test('virtual properties', function (t) {
     a: 1
   })
 
-  t.same(utils.omitVirtualDeep({
-    models,
-    resource: {
-      [TYPE]: 'tradle.FormRequest',
-      form: 'tradle.ProductRequest',
-      chooser: {
-        oneOf: ['a', 'b', 'c']
-      }
-    }
-  }), {
+  const noVirt = {
     [TYPE]: 'tradle.FormRequest',
     form: 'tradle.ProductRequest',
     chooser: {
       oneOf: ['a', 'b', 'c']
+    }
+  }
+
+  const hasVirt = {
+    [TYPE]: 'tradle.FormRequest',
+    form: 'tradle.ProductRequest',
+    chooser: {
+      oneOf: ['a', 'b', 'c']
+    }
+  }
+
+  t.same(utils.omitVirtualDeep({
+    models,
+    resource: hasVirt
+  }), noVirt)
+
+  t.same(utils.omitVirtualDeep1(hasVirt), noVirt)
+  t.same(utils.omitVirtualDeep1({
+    _link: 'abc',
+    blah: {
+      _link: 'abc',
+      _googa: 123
+    }
+  }), {
+    blah: {
+      _link: 'abc'
     }
   })
 
