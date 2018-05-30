@@ -9,6 +9,8 @@ module.exports = [
     resource: {
       _t: Profile.id,
       _s: 'somesig',
+      _author: 'someauthor',
+      _time: 123,
       firstName: 'ted'
     }
   },
@@ -17,6 +19,8 @@ module.exports = [
     resource: {
       _t: Profile.id,
       _s: 'somesig',
+      _author: 'someauthor',
+      _time: 123,
       firstName: 'ted',
       photos: [{
         _t: 'tradle.Photo',
@@ -29,6 +33,8 @@ module.exports = [
     resource: {
       _t: Profile.id,
       _s: 'somesig',
+      _author: 'someauthor',
+      _time: 123,
       firstName: 'ted',
       lastMessageTime: Date.now(),
       myDocuments: [{
@@ -65,7 +71,9 @@ module.exports = [
     model: ModelsPack,
     resource: {
       _t: ModelsPack.id,
+      _time: 123,
       _s: 'somesig',
+      _author: 'someauthor',
       namespace: 'somenamespace',
       versionId: 'someversionid',
       models: [

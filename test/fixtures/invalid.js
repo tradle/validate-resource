@@ -37,7 +37,6 @@ module.exports = [
       _t: Profile.id,
       _s: 'somesig',
       _time: 123,
-      _time: 123,
       firstName: 7
     },
     error: /firstName/
@@ -47,7 +46,6 @@ module.exports = [
     resource: {
       _t: Profile.id,
       _s: 'somesig',
-      _time: 123,
       _time: 123,
       firstName: 'ted',
       photos: 'notaphoto'
@@ -59,7 +57,6 @@ module.exports = [
     resource: {
       _t: Profile.id,
       _s: 'somesig',
-      _time: 123,
       _time: 123,
       firstName: 'ted',
       photos: [{
@@ -74,7 +71,6 @@ module.exports = [
       _t: Profile.id,
       _s: 'somesig',
       _time: 123,
-      _time: 123,
       firstName: 'ted',
       photos: [{
         _t: 'tradle.PersonalInfo'
@@ -88,7 +84,6 @@ module.exports = [
       _t: Profile.id,
       _s: 'somesig',
       _time: 123,
-      _time: 123,
       firstName: 'ted',
       lastMessageTime: false
     },
@@ -99,7 +94,6 @@ module.exports = [
     resource: {
       _t: Profile.id,
       _s: 'somesig',
-      _time: 123,
       _time: 123,
       firstName: 'ted',
       myDocuments: [{
