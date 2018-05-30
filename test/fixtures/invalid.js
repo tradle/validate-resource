@@ -29,6 +29,17 @@ module.exports = [
       _s: 'somesig',
       firstName: 7
     },
+    error: /required/
+  },
+  {
+    models,
+    resource: {
+      _t: Profile.id,
+      _s: 'somesig',
+      _time: 123,
+      _time: 123,
+      firstName: 7
+    },
     error: /firstName/
   },
   {
@@ -36,6 +47,8 @@ module.exports = [
     resource: {
       _t: Profile.id,
       _s: 'somesig',
+      _time: 123,
+      _time: 123,
       firstName: 'ted',
       photos: 'notaphoto'
     },
@@ -46,6 +59,8 @@ module.exports = [
     resource: {
       _t: Profile.id,
       _s: 'somesig',
+      _time: 123,
+      _time: 123,
       firstName: 'ted',
       photos: [{
         _t: 'tradle.Beef'
@@ -58,6 +73,8 @@ module.exports = [
     resource: {
       _t: Profile.id,
       _s: 'somesig',
+      _time: 123,
+      _time: 123,
       firstName: 'ted',
       photos: [{
         _t: 'tradle.PersonalInfo'
@@ -70,6 +87,8 @@ module.exports = [
     resource: {
       _t: Profile.id,
       _s: 'somesig',
+      _time: 123,
+      _time: 123,
       firstName: 'ted',
       lastMessageTime: false
     },
@@ -80,6 +99,8 @@ module.exports = [
     resource: {
       _t: Profile.id,
       _s: 'somesig',
+      _time: 123,
+      _time: 123,
       firstName: 'ted',
       myDocuments: [{
         id: 'boo'
@@ -92,6 +113,7 @@ module.exports = [
     resource: {
       _t: Profile.id,
       _s: 'somesig',
+      _time: 123,
       firstName: 'ted',
       myForms: [{
         id: 'tradle.Major_boo_hoo'
@@ -104,6 +126,7 @@ module.exports = [
     resource: {
       _t: Profile.id,
       _s: 'somesig',
+      _time: 123,
       firstName: 'ted',
       country: 'USA'
     },
@@ -114,6 +137,7 @@ module.exports = [
     resource: {
       _t: Profile.id,
       _s: 'somesig',
+      _time: 123,
       firstName: 'ted',
       useTouchId: 'three'
     },
@@ -124,6 +148,7 @@ module.exports = [
     resource: {
       _t: Profile.id,
       _s: 'somesig',
+      _time: 123,
       firstName: 'ted',
       photos: [{
         _t: 'tradle.Photo',
@@ -139,6 +164,7 @@ module.exports = [
     resource: {
       _t: Profile.id,
       _s: 'somesig',
+      _time: 123,
       firstName: ''
     },
     error: /empty.*firstName/i
