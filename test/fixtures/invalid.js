@@ -2,11 +2,11 @@ const _ = require('lodash')
 const models = _.extend(
   {},
   require('@tradle/models').models,
-  require('@tradle/custom-models')
+  require('@tradle/custom-models').models
 )
 
 const Profile = models['tradle.Profile']
-const Possessions = require('@tradle/custom-models')['tradle.Posessions']
+const Possessions = require('@tradle/custom-models').models['tradle.Posessions']
 
 module.exports = [
   {

@@ -1,7 +1,7 @@
 const { models } = require('@tradle/models')
 const Profile = models['tradle.Profile']
 const ModelsPack = models['tradle.ModelsPack']
-const Possessions = require('@tradle/custom-models')['tradle.Posessions']
+const Possessions = require('@tradle/custom-models').models['tradle.Posessions']
 
 module.exports = [
   {

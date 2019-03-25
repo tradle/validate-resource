@@ -6,7 +6,7 @@ const mergeModels = require('@tradle/merge-models')
 const Errors = require('@tradle/errors')
 const models = mergeModels()
   .add(require('@tradle/models').models)
-  .add(require('@tradle/custom-models'))
+  .add(require('@tradle/custom-models').models)
   .get()
 
 // const Profile = models['tradle.Profile']
